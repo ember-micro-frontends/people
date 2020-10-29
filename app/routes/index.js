@@ -7,9 +7,12 @@ export default class IndexRoute extends Route {
     },
   };
 
-  model(params) {
-    const person = this.store.peekRecord("people", params.id || 0);
-    const people = this.store.peekAll("people");
+  async model(params) {
+    const response = await fetch("https://swapi.dev/api/people/");
+    const _people = await response.json();
+    _people.results.forEach((p,index) => p.id = ++index);
+    const people = _people.results;
+    const person = people.find(p => p.id == params.id);
     return { people, person };
   }
 }
