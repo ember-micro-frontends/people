@@ -13,9 +13,7 @@
         <PeopleList @people={{@model.people}}/>
     </div>
     <div class="w-2/3 p-6 border-l-2 border-white">
-      <div class="selectedPlanet">
-        <SelectedPeople @person={{@model.person}} />
-      </div>
+      {{outlet}}
     </div>
   </div>
 </div>
