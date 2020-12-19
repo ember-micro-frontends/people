@@ -10,4 +10,5 @@ Router.map(function() {
   this.route('index', { path: '/' },  function() {
     this.route('show', { path: '/:id' });
   });
+  this.route('about');
 });
